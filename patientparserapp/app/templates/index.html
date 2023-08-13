@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label for="patientid" class="sr-only">Patient ID</label>
+      <input type="text" class="form-control mb-2" id="patientid" name="patientid" placeholder="Enter patient ID">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+  </div>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %}class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock body %}
