@@ -15,11 +15,9 @@
   </div>
 </form>
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %}class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
+{% if successmessages %}
+    {% for key, message in successmessages.items %}
+                <li><strong>{{ key }}:</strong> {{ message }}</li>
+            {% endfor %}
 {% endif %}
 {% endblock body %}
